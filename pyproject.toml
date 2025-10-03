@@ -1,0 +1,75 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=61.0", "wheel>=0.37.1"]
+
+[project]
+authors = [
+  { name = "Robert Ulmer", email = "rulmer@lr.htlweiz.at" },
+  { name = "4AHIT", email = "4ahit@sr.htlweiz.at" },
+]
+name = "IVahit"
+version = "0.0.1"
+description = "Just a note taker api"
+readme = "README.md"
+requires-python = ">=3.9,<4.0"
+license = { file = "LICENSE" }
+keywords = ["api", "fastapi", "teaching", "note", "notetaker"]
+
+classifiers = [
+  "Development Status :: 1 - Early prototype",
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Operating System :: MacOS",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+dependencies = ["sqlalchemy>=2", "fastapi>=0.116", "psycopg2>=2.9", "pydantic>=2"]
+
+[project.scripts]
+
+IVahit_clear_database = "IVahit.scripts:clear_database"
+IVahit_create_database = "IVahit.scripts:create_database"
+IVahit_manual_test_crud = "IVahit.scripts:test_crud"
+
+[project.urls]
+
+"Homepage" = "https://www.htlweiz.at"
+"Documentation" = "https://www.htlweiz.at"
+
+[project.optional-dependencies]
+lint = [
+    # checks for spelling mistakes
+    "codespell>=2.2.4",
+
+    # ruff linter checks for issues and potential bugs
+    "ruff",
+
+    # checks for unused code
+    "vulture",
+
+    # required for codespell to parse pyproject.toml
+    "tomli",
+
+    # validation of pyproject.toml
+    "validate-pyproject[all]",
+
+    # automatic sorting of imports
+    "isort",
+
+    # automatic code formatting to follow a consistent style
+    "black",
+
+]
+
+test = [
+  "pytest"
+]
