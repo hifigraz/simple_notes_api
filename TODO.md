@@ -3,3 +3,4 @@
 * add testing
 * add linting
 * more windows testing
+* egg info permissions conflicting
