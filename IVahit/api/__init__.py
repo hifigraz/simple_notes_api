@@ -43,3 +43,8 @@ async def create_note(note: CreateNoteDef) -> FullNoteDef:
     except Exception as e:
         logger.error(e)
         raise e
+
+@app.put(path="/note/{note_id}")
+async def update_note(note_id: UUID, note: CreateNoteDef):
+    assert note_id
+    assert note

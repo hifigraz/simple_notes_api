@@ -12,13 +12,12 @@ version = "0.0.1"
 description = "Just a note taker api"
 readme = "README.md"
 requires-python = ">=3.9,<4.0"
-license = { file = "LICENSE" }
+license = "GPL-3.0-or-later"
 keywords = ["api", "fastapi", "teaching", "note", "notetaker"]
 
 classifiers = [
   "Development Status :: 1 - Early prototype",
   "Environment :: Console",
-  "License :: OSI Approved :: MIT License",
   "Natural Language :: English",
   "Operating System :: MacOS",
   "Operating System :: Microsoft :: Windows",
