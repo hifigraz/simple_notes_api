@@ -1,13 +1,10 @@
 from sys import argv
 from time import sleep
-from uuid import UUID
 
-from fastapi import FastAPI, HTTPException
 from sqlalchemy import Engine
 from sqlalchemy.sql import text
 
-from IVahit.api import app
-from IVahit.crud import Crud, CrudElementNotFoundException, FullNoteDef
+from IVahit.crud import Crud
 from IVahit.engines import get_prod_endinge, get_test_engine
 from IVahit.model._model import Base
 
@@ -60,7 +57,7 @@ def test_crud():
     crud = Crud(engine)
     logger.debug(engine)
 
-    crud.CreateNote("Das ist die Notiz")
-    crud.CreateNote("Und noch eine schöne Notiz")
+    _ = crud.CreateNote("Das ist die Notiz")
+    _ = crud.CreateNote("Und noch eine schöne Notiz")
     notes = crud.ReadNote()
     logger.debug(list(notes))
