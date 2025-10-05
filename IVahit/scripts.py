@@ -4,11 +4,14 @@ from time import sleep
 from sqlalchemy import Engine
 from sqlalchemy.sql import text
 
+from IVahit.api import app
 from IVahit.crud import Crud
 from IVahit.engines import get_prod_endinge, get_test_engine
 from IVahit.model._model import Base
 
 from .mylog import getLogger
+
+assert app
 
 logger = getLogger(__name__)
 

@@ -81,7 +81,7 @@ class Crud:
 
             return notes
 
-    def CreateNote(self, note: str, tags: list[str]|None = None):
+    def CreateNote(self, note: str, tags: list[str] | None = None):
         logger.debug("Create a note")
         with Session(self._engine) as session:
             note_element = Note()

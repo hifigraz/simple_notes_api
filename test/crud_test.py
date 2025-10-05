@@ -27,24 +27,18 @@ def test_00():
     )
 
     note_a_read = crud.ReadNote()[0]
-    assert repr(note_a_read) == f"FullNoteDef(note='Test A', id=UUID('{note_a_create.id}'), tags=[])"
+    assert (
+        repr(note_a_read)
+        == f"FullNoteDef(note='Test A', id=UUID('{note_a_create.id}'), tags=[])"
+    )
 
     note_b_create = crud.CreateNote(note="Test B", tags=["RED", "GREEN"])
     assert (
         strip_uuid(repr(note_b_create))
         == "FullNoteDef(note='Test B', id=UUID('00000000-0000-0000-0000-000000000000'), tags=[FullTagDef(tag='RED', id=UUID('00000000-0000-0000-0000-000000000000'), note_id=UUID('00000000-0000-0000-0000-000000000000')), FullTagDef(tag='GREEN', id=UUID('00000000-0000-0000-0000-000000000000'), note_id=UUID('00000000-0000-0000-0000-000000000000'))])"
     )
-    assert (
-        note_a_create == note_a_read
-    )
+    assert note_a_create == note_a_read
 
     note_b_read = crud.ReadNote(id=note_b_create.id)
-    assert (
-        note_b_create == note_b_read[0]
-    )
-    assert (
-        repr(note_b_create) == repr(note_b_read[0])
-    )
-
-
-
+    assert note_b_create == note_b_read[0]
+    assert repr(note_b_create) == repr(note_b_read[0])

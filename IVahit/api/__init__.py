@@ -2,8 +2,7 @@ from uuid import UUID
 
 from fastapi import FastAPI, HTTPException
 
-from IVahit.crud import (CreateNoteDef, Crud, CrudElementNotFoundException,
-                         FullNoteDef)
+from IVahit.crud import CreateNoteDef, Crud, CrudElementNotFoundException, FullNoteDef
 from IVahit.engines import get_prod_endinge
 
 from ..mylog import getLogger
@@ -43,6 +42,7 @@ async def create_note(note: CreateNoteDef) -> FullNoteDef:
     except Exception as e:
         logger.error(e)
         raise e
+
 
 @app.put(path="/note/{note_id}")
 async def update_note(note_id: UUID, note: CreateNoteDef):
