@@ -48,3 +48,4 @@ async def create_note(note: CreateNoteDef) -> FullNoteDef:
 async def update_note(note_id: UUID, note: CreateNoteDef):
     assert note_id
     assert note
+
