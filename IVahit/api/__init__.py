@@ -48,3 +48,7 @@ async def create_note(note: CreateNoteDef) -> FullNoteDef:
 async def update_note(note_id: UUID, note: CreateNoteDef):
     assert note_id
     assert note
+
+@app.get(path="/bogus")
+async def get_bogus():
+    return {"bogus": "foobard"}
